@@ -1,0 +1,263 @@
+/* =========================================================
+   09-LOJA.CSS — ESTILOS DO HUB DA LOJA / INVENTÁRIO
+   Design Cyber Hacker Neon (Verde matrix + Ciano + Rosa)
+   ========================================================= */
+
+@keyframes loja-rainbow {
+  0%   { color: #00ff88; text-shadow: 0 0 8px #00ff88, 0 0 18px #00ff8866; }
+  25%  { color: #00ddff; text-shadow: 0 0 8px #00ddff, 0 0 18px #00ddff66; }
+  50%  { color: #aa55ff; text-shadow: 0 0 8px #aa55ff, 0 0 18px #aa55ff66; }
+  75%  { color: #ff5588; text-shadow: 0 0 8px #ff5588, 0 0 18px #ff558866; }
+  100% { color: #00ff88; text-shadow: 0 0 8px #00ff88, 0 0 18px #00ff8866; }
+}
+
+@keyframes loja-blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+@keyframes loja-scan {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(220%); }
+}
+
+@keyframes loja-pulse {
+  0%, 100% { box-shadow: 0 0 10px #00ff8855, inset 0 0 10px #00ff8822; }
+  50%      { box-shadow: 0 0 30px #00ff88aa, inset 0 0 25px #00ff8844; }
+}
+
+.loja-hacker,
+.loja-hacker * {
+  font-family: 'Courier New', 'Consolas', ui-monospace, monospace !important;
+}
+
+.loja-hacker {
+  letter-spacing: .5px;
+  color: #d4ffe0;
+  background: #0a1a10;
+  position: relative;
+}
+
+.loja-hacker > * {
+  position: relative;
+  z-index: 2;
+}
+
+.loja-hacker::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 255, 136, 0)   0px,
+    rgba(0, 255, 136, 0)   2px,
+    rgba(0, 255, 136, .03) 3px,
+    rgba(0, 255, 136, 0)   4px
+  );
+}
+
+.loja-hacker h1,
+.loja-hacker h2,
+.loja-hacker h3 {
+  animation: loja-rainbow 8s linear infinite;
+}
+
+.loja-btn {
+  font-family: inherit;
+  background: transparent;
+  color: #9dffc5;
+  border: 1px solid #00ff88;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: all .2s;
+  text-shadow: 0 0 6px #00ff8888;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.loja-btn:hover:not(:disabled) {
+  background: #00ff8822;
+  box-shadow: 0 0 15px #00ff8877, inset 0 0 10px #00ff8833;
+}
+
+.loja-btn.active {
+  background: #00ff8844;
+  box-shadow: 0 0 20px #00ff88aa, inset 0 0 15px #00ff8844;
+  color: #e0fff0;
+}
+
+.loja-btn:disabled {
+  opacity: .35;
+  cursor: not-allowed;
+}
+
+.loja-cat-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.loja-wallet {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  border: 1px solid #00ff88;
+  background: linear-gradient(90deg, #00ff8822, #00ff8808);
+  animation: loja-pulse 3s ease-in-out infinite;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.loja-wallet::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, #00ff8822, transparent);
+  animation: loja-scan 3.5s linear infinite;
+}
+
+.loja-wallet-label {
+  font-size: 12px;
+  color: #7cffb0;
+  letter-spacing: 3px;
+}
+
+.loja-wallet-sub {
+  font-size: 10px;
+  opacity: .55;
+  margin-top: 4px;
+}
+
+.loja-wallet-value {
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  animation: loja-rainbow 5s linear infinite;
+  position: relative;
+  z-index: 2;
+}
+
+.loja-items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.loja-card {
+  background: linear-gradient(180deg, #0d2016cc, #0a1a10cc);
+  border: 1px solid #00ff8833;
+  padding: 14px;
+  cursor: pointer;
+  transition: all .2s;
+  position: relative;
+  color: inherit;
+}
+
+.loja-card:hover {
+  border-color: #00ff88;
+  box-shadow: 0 0 20px #00ff8855, inset 0 0 20px #00ff8811;
+  transform: translateY(-2px);
+}
+
+.loja-card::before {
+  content: '▸';
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  color: #00ff88;
+  opacity: .5;
+  font-size: 10px;
+}
+
+.loja-card.non-clickable {
+  cursor: default;
+}
+
+.loja-modal,
+#loja-viewer-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.loja-modal.open {
+  display: flex;
+  pointer-events: auto;
+}
+
+.loja-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 25, 15, .82);
+  backdrop-filter: blur(4px);
+}
+
+.loja-modal-panel {
+  position: relative;
+  width: min(92vw, 900px);
+  height: min(88vh, 750px);
+  display: flex;
+  flex-direction: column;
+  background: #0a1a10;
+  border: 2px solid #00ff88;
+  box-shadow: 0 0 60px #00ff8899, inset 0 0 40px #00ff8822;
+  pointer-events: auto;
+}
+
+.loja-modal-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  border-bottom: 1px solid #00ff8844;
+}
+
+.loja-modal-head-title {
+  animation: loja-rainbow 6s linear infinite;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.loja-modal-close {
+  background: transparent;
+  border: 1px solid #ff3388;
+  color: #ff77aa;
+  padding: 6px 14px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all .2s;
+  pointer-events: auto;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.loja-modal-close:hover {
+  background: #ff338833;
+  box-shadow: 0 0 15px #ff338888;
+}
+
+#loja-viewer {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  background: #0d1f14;
+}
+
+#loja-model-status {
+  padding: 10px 16px;
+  border-top: 1px solid #00ff8844;
+  font-size: 12px;
+  color: #7cffb0;
+}

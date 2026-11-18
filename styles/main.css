@@ -1,0 +1,33 @@
+/* =========================================================
+   STYLES/MAIN.CSS — ORQUESTRADOR DE ESTILOS
+   Sistema de Manutenção 2026.2 (Arquitetura CSS Modular)
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800&display=swap');
+
+/* 01. Design Tokens, Variáveis e Paleta Cyber */
+@import './01-tokens.css';
+
+/* 02. Reset e Tipografia Base */
+@import './02-reset.css';
+
+/* 03. Grid de Layout (#app, #viewport, canvas) */
+@import './03-layout.css';
+
+/* 04. Painel Lateral e Controles */
+@import './04-panel.css';
+
+/* 05. HUD (Cabeçalho, Crosshair, Prompts e Ações Rápidas) */
+@import './05-hud.css';
+
+/* 06. Modais do Sistema (Terminal de Ajuda, Scanlines) */
+@import './06-modals.css';
+
+/* 07. Telas Dinâmicas do Jogo (Workshops, Desafios, Resultados) */
+@import './07-screen.css';
+
+/* 08. Telas de Boot e Boas-Vindas */
+@import './08-boot-welcome.css';
+
+/* 09. Módulo Visual da Loja e Visualizador 3D */
+@import './09-loja.css';
