@@ -1,0 +1,29 @@
+# Dependências e caches
+node_modules/
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+
+# Logs e diagnósticos do servidor de desenvolvimento
+logs/*.log
+*.log
+
+# Arquivos temporários e backups
+*.swp
+*.swo
+*~
+*.bak
+*.tmp
+*.temp
+backup_*/
+*.zip
+
+# IDE e sistema operacional
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini

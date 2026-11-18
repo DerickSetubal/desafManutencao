@@ -1,0 +1,10 @@
+{
+  "name": "logic-simulacao",
+  "version": "2.0.0",
+  "type": "module",
+  "description": "Simulação 3D WebGL / Three.js / Cannon-es — Manutenção de Sistemas 2026.2",
+  "scripts": {
+    "test:security": "python tests/test_security.py",
+    "test:regression": "node tests/test_regression.mjs"
+  }
+}
